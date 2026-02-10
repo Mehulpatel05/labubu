@@ -1,12 +1,13 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Users, CheckCircle2, Clock } from "lucide-react"
+import { Users, CheckCircle2, Clock, Star } from "lucide-react"
 
 const stats = [
-  { icon: Users, value: "50+", label: "Clients Served" },
-  { icon: CheckCircle2, value: "120+", label: "Projects Delivered" },
-  { icon: Clock, value: "2 Weeks", label: "Avg. Launch Time" },
+  { icon: Users, value: "50+", label: "Clients" },
+  { icon: CheckCircle2, value: "120+", label: "Projects" },
+  { icon: Clock, value: "2 Weeks", label: "Avg. Launch" },
+  { icon: Star, value: "4.9", label: "Rating" },
 ]
 
 export function ProofSection() {
@@ -18,35 +19,40 @@ export function ProofSection() {
       ([entry]) => {
         if (entry.isIntersecting) setVisible(true)
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     )
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section className="py-12 md:py-16">
-      <div ref={ref} className="mx-auto max-w-6xl px-4 text-center">
+    <section className="relative bg-primary/5 py-10 md:py-14 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-0 left-1/3 h-px w-48 bg-primary/10" />
+        <div className="absolute bottom-0 right-1/3 h-px w-32 bg-primary/10" />
+      </div>
+
+      <div ref={ref} className="relative mx-auto max-w-4xl px-4 text-center">
         <h2
           className={`font-display text-xl font-bold text-foreground md:text-2xl text-balance ${
             visible ? "animate-fade-up" : "opacity-0"
           }`}
         >
-          Built for founders & growing businesses.
+          Trusted by Founders & Growing Businesses
         </h2>
 
-        <div className="mt-8 grid grid-cols-3 gap-4">
+        <div className="mt-6 grid grid-cols-4 gap-3">
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className={`flex flex-col items-center gap-1 ${
+              className={`flex flex-col items-center gap-0.5 ${
                 visible ? "animate-fade-up" : "opacity-0"
               }`}
-              style={{ animationDelay: `${(i + 1) * 0.15}s` }}
+              style={{ animationDelay: `${(i + 1) * 0.12}s` }}
             >
-              <s.icon size={20} className="text-primary" />
-              <span className="text-lg font-bold text-foreground md:text-2xl">{s.value}</span>
-              <span className="text-[10px] text-muted-foreground md:text-xs">{s.label}</span>
+              <s.icon size={18} className="text-primary mb-1" />
+              <span className="text-lg font-bold text-foreground md:text-xl">{s.value}</span>
+              <span className="text-[10px] text-muted-foreground">{s.label}</span>
             </div>
           ))}
         </div>
