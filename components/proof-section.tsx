@@ -26,35 +26,40 @@ export function ProofSection() {
   }, [])
 
   return (
-    <section className="relative bg-background py-10 md:py-12 overflow-hidden">
-      {/* Decorative background */}
+    <section className="relative bg-background py-12 md:py-16 overflow-hidden">
+      {/* Background decorative elements */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-0 left-1/4 h-px w-32 bg-primary/10" />
-        <div className="absolute bottom-0 right-1/3 h-px w-24 bg-primary/10" />
-        <div className="absolute top-0 right-0 h-40 w-40 rounded-full bg-primary/[0.02]" />
+        <div className="absolute top-0 left-[20%] h-[200px] w-[200px] rounded-full bg-primary/[0.025]" />
+        <div className="absolute bottom-0 right-[15%] h-[180px] w-[180px] rounded-full bg-primary/[0.02]" />
+        <div className="absolute top-6 right-[30%] h-[2px] w-20 rounded-full bg-primary/10" />
       </div>
 
-      <div ref={ref} className="relative mx-auto max-w-4xl px-4 text-center">
+      <div ref={ref} className="relative mx-auto max-w-5xl px-5 text-center">
+        <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+          Trusted By Businesses
+        </p>
         <h2
-          className={`font-display text-xl font-bold text-foreground md:text-2xl text-balance ${
+          className={`mt-2 font-display text-2xl font-bold text-foreground md:text-3xl text-balance ${
             visible ? "animate-fade-up" : "opacity-0"
           }`}
         >
-          Founders & Businesses Trust Karte Hain
+          Built For Founders & Growing Businesses
         </h2>
 
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className={`flex flex-col items-center gap-1 rounded-xl border border-border bg-card p-4 ${
+              className={`relative flex flex-col items-center gap-2 rounded-xl border border-border bg-card p-5 transition-all hover:shadow-md hover:border-primary/20 ${
                 visible ? "animate-fade-up" : "opacity-0"
               }`}
-              style={{ animationDelay: `${(i + 1) * 0.12}s` }}
+              style={{ animationDelay: `${(i + 1) * 0.1}s` }}
             >
-              <s.icon size={18} className="text-primary mb-1" />
-              <span className="text-lg font-bold text-foreground md:text-xl">{s.value}</span>
-              <span className="text-[10px] text-muted-foreground">{s.label}</span>
+              {/* Corner accent */}
+              <div className="absolute top-0 right-0 h-8 w-8 bg-primary/[0.04] rounded-bl-xl" />
+              <s.icon size={20} className="text-primary" />
+              <span className="text-2xl font-bold text-foreground md:text-3xl font-display">{s.value}</span>
+              <span className="text-[11px] text-muted-foreground">{s.label}</span>
             </div>
           ))}
         </div>
