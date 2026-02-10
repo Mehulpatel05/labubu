@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react"
 import { Users, CheckCircle2, Clock, Star } from "lucide-react"
 
 const stats = [
-  { icon: Users, value: "50+", label: "Clients" },
-  { icon: CheckCircle2, value: "120+", label: "Projects" },
-  { icon: Clock, value: "2 Weeks", label: "Avg. Launch" },
-  { icon: Star, value: "4.9", label: "Rating" },
+  { icon: Users, value: "50+", label: "Happy Clients" },
+  { icon: CheckCircle2, value: "120+", label: "Projects Delivered" },
+  { icon: Clock, value: "2-4 Weeks", label: "Avg. Delivery" },
+  { icon: Star, value: "4.9/5", label: "Client Rating" },
 ]
 
 export function ProofSection() {
@@ -26,10 +26,12 @@ export function ProofSection() {
   }, [])
 
   return (
-    <section className="relative bg-primary/5 py-10 md:py-14 overflow-hidden">
+    <section className="relative bg-background py-10 md:py-12 overflow-hidden">
+      {/* Decorative background */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-0 left-1/3 h-px w-48 bg-primary/10" />
-        <div className="absolute bottom-0 right-1/3 h-px w-32 bg-primary/10" />
+        <div className="absolute top-0 left-1/4 h-px w-32 bg-primary/10" />
+        <div className="absolute bottom-0 right-1/3 h-px w-24 bg-primary/10" />
+        <div className="absolute top-0 right-0 h-40 w-40 rounded-full bg-primary/[0.02]" />
       </div>
 
       <div ref={ref} className="relative mx-auto max-w-4xl px-4 text-center">
@@ -38,14 +40,14 @@ export function ProofSection() {
             visible ? "animate-fade-up" : "opacity-0"
           }`}
         >
-          Trusted by Founders & Growing Businesses
+          Founders & Businesses Trust Karte Hain
         </h2>
 
-        <div className="mt-6 grid grid-cols-4 gap-3">
+        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className={`flex flex-col items-center gap-0.5 ${
+              className={`flex flex-col items-center gap-1 rounded-xl border border-border bg-card p-4 ${
                 visible ? "animate-fade-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${(i + 1) * 0.12}s` }}

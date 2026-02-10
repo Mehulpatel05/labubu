@@ -1,53 +1,75 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowRight, Code2, Rocket, CreditCard } from "lucide-react"
+import { ArrowRight, CheckCircle2 } from "lucide-react"
+
+const examples = [
+  "Gym Membership App",
+  "Online Course Platform",
+  "Restaurant Ordering System",
+  "Clinic Booking App",
+  "Subscription Billing System",
+  "School Management Portal",
+]
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-foreground pt-16 pb-0 md:pt-20">
-      {/* Background decorative elements */}
+    <section className="relative overflow-hidden bg-background pt-20 pb-10 md:pt-24 md:pb-14">
+      {/* Decorative background shapes */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-16 right-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-56 w-56 rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute top-32 left-1/4 h-px w-32 bg-primary/30 animate-pulse-line" />
-        <div className="absolute top-48 right-1/3 h-px w-24 bg-primary/20 animate-pulse-line" style={{ animationDelay: "0.7s" }} />
-        <div className="absolute bottom-40 right-16 h-20 w-px bg-primary/20 animate-pulse-line" style={{ animationDelay: "1.2s" }} />
+        <div className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-primary/5" />
+        <div className="absolute top-1/2 -left-16 h-64 w-64 rounded-full bg-primary/4" />
+        <div className="absolute bottom-0 right-1/4 h-48 w-48 rounded-full bg-primary/3" />
+        {/* Dotted grid pattern */}
+        <svg className="absolute top-16 right-8 opacity-10" width="120" height="120">
+          <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="hsl(0 100% 44%)" />
+          </pattern>
+          <rect width="120" height="120" fill="url(#dots)" />
+        </svg>
+        <svg className="absolute bottom-10 left-10 opacity-[0.07]" width="80" height="80">
+          <pattern id="dots2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="hsl(0 100% 44%)" />
+          </pattern>
+          <rect width="80" height="80" fill="url(#dots2)" />
+        </svg>
+        {/* Red accent lines */}
+        <div className="absolute top-28 left-[15%] h-[2px] w-16 bg-primary/15 rounded-full" />
+        <div className="absolute bottom-24 right-[20%] h-[2px] w-12 bg-primary/10 rounded-full" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4">
-        <div className="grid items-center gap-6 md:grid-cols-2 md:gap-10">
+        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
           {/* Left - Text */}
-          <div className="animate-fade-up py-8 md:py-14">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1">
+          <div className="animate-fade-up">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
               <span className="text-[10px] font-semibold uppercase tracking-wider text-primary">
-                SaaS Development Studio
+                Software Development Studio
               </span>
             </div>
 
-            <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-background md:text-4xl lg:text-5xl text-balance">
-              We Build Your SaaS Idea Into a Real Product
+            <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.75rem] text-balance">
+              Aapka Idea, Hamari Coding.{" "}
+              <span className="text-primary">Ready Software Deliver.</span>
             </h1>
-            <p className="mt-3 max-w-md text-sm leading-relaxed text-background/60">
-              You bring the idea. We design, develop & launch your mini SaaS, MVP, or subscription platform - ready to earn.
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
+              Hum aapke liye poora software bana ke dete hain - app, website, admin panel, payment system - sab kuch ready-to-use.
             </p>
 
-            {/* Quick service tags */}
-            <div className="mt-4 flex flex-wrap gap-2">
-              {[
-                { icon: Code2, label: "SaaS Apps" },
-                { icon: Rocket, label: "MVPs" },
-                { icon: CreditCard, label: "Payment Systems" },
-              ].map((tag) => (
-                <span
-                  key={tag.label}
-                  className="inline-flex items-center gap-1.5 rounded-md bg-background/10 px-2.5 py-1 text-[11px] font-medium text-background/80"
-                >
-                  <tag.icon size={12} className="text-primary" />
-                  {tag.label}
-                </span>
-              ))}
+            {/* Real-world examples that anyone can understand */}
+            <div className="mt-4">
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground mb-2">
+                Jaise hum bana chuke hain:
+              </p>
+              <div className="grid grid-cols-2 gap-1.5">
+                {examples.map((ex) => (
+                  <div key={ex} className="flex items-center gap-1.5">
+                    <CheckCircle2 size={12} className="shrink-0 text-primary" />
+                    <span className="text-xs text-foreground">{ex}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -55,34 +77,31 @@ export function HeroSection() {
                 href="https://wa.me/918306590731"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-105"
+                className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-105 shadow-lg shadow-primary/20"
               >
-                Start Your Project
+                WhatsApp Pe Baat Karo
                 <ArrowRight size={16} />
               </a>
               <a
-                href="https://wa.me/918306590731"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-md border border-background/20 px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-background/10"
+                href="tel:+918306590731"
+                className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
               >
-                Get Free Demo
+                Call: +91 8306590731
               </a>
             </div>
           </div>
 
           {/* Right - Image */}
           <div className="animate-slide-left">
-            <div className="relative overflow-hidden rounded-t-lg md:rounded-lg shadow-2xl">
+            <div className="relative overflow-hidden rounded-xl shadow-2xl shadow-primary/10 border border-border">
               <Image
                 src="/hero-bg.jpg"
-                alt="SaaS product being built at WEMAKING studio"
+                alt="Software products built by WEMAKING"
                 width={600}
                 height={400}
                 className="h-auto w-full object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
             </div>
           </div>
         </div>
