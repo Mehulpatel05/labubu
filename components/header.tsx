@@ -21,7 +21,7 @@ export function Header() {
           className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
           <Phone size={14} className="text-primary" />
-          <span className="hidden sm:inline">+91 8306590731</span>
+          <span className="hidden sm:inline">+91 9680836834</span>
         </a>
       </div>
     </header>
