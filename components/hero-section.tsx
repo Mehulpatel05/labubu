@@ -54,7 +54,7 @@ export function HeroSection() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="https://wa.me/918306590731"
+                href="https://wa.me/919680836834"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-transform hover:scale-105"
@@ -63,7 +63,7 @@ export function HeroSection() {
                 <ArrowRight size={15} />
               </a>
               <a
-                href="tel:+918306590731"
+                href="tel:+me 919680836834"
                 className="inline-flex items-center gap-2 rounded-lg border border-border bg-transparent px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
               >
                 Call Us
