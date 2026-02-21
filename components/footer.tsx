@@ -15,11 +15,11 @@ export function Footer() {
 
         <div className="flex items-center gap-4 text-[11px] text-muted-foreground">
           <a
-            href="tel:+918306590731"
+            href="tel:+9189680836834"
             className="inline-flex items-center gap-1 transition-colors hover:text-foreground"
           >
             <Phone size={11} />
-            +91 8306590731
+            +91 9680836834
           </a>
           <a
             href="mailto:swatmehul5@gmail.com"
