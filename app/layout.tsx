@@ -1,6 +1,7 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
+import { Toaster } from 'sonner'
 
 import './globals.css'
 
@@ -8,8 +9,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' })
 
 export const metadata: Metadata = {
-  title: 'WEMAKING - We Build Mini SaaS That Works',
-  description: 'From idea to live product. We build SaaS, MVPs, and subscription systems for founders and growing businesses.',
+  title: 'ShopHub - Labubu Earphones & iPhone Cases',
+  description: 'Buy trending Labubu earphones and iPhone charger cases online with fast delivery',
 }
 
 export const viewport: Viewport = {
@@ -25,7 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+        <Toaster position="top-center" richColors />
+      </body>
     </html>
   )
 }
